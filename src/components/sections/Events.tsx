@@ -16,7 +16,89 @@ export default function Events({ limit }: { limit?: number }) {
     <section id="events" className="bg-sand py-20">
       <Container>
 
+        {/* ── Signature Annual Events (full page, shown first) ── */}
+        {!limit && (
+          <>
+            <SectionHeader label="Every Year, Without Fail" />
+            <div className="flex justify-between items-end flex-wrap gap-4 mb-4">
+              <motion.h2
+                variants={fadeUp}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                className="font-display text-[clamp(26px,4vw,38px)] font-bold text-charcoal leading-tight"
+              >
+                Signature Annual Events
+              </motion.h2>
+              <a
+                href="#upcoming"
+                className="text-sm text-navy font-semibold no-underline flex items-center gap-1 hover:gap-2 transition-all"
+              >
+                See Upcoming Dates <ArrowRight size={14} />
+              </a>
+            </div>
+            <motion.p
+              variants={fadeUp}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              className="text-base text-slate leading-loose max-w-2xl mb-12"
+            >
+              These are the events our community looks forward to every single year —
+              moments that define who we are and what we celebrate together.
+            </motion.p>
+
+            <div className="flex flex-col gap-12 mb-[80px]">
+              {SIGNATURE_EVENTS.map((e, i) => {
+                const tc = TAG_COLORS[e.tag];
+                const isEven = i % 2 === 0;
+                return (
+                  <motion.div
+                    key={e.title}
+                    variants={isEven ? slideInLeft : slideInRight}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, margin: "-60px" }}
+                    className={`grid grid-cols-1 lg:grid-cols-2 gap-8 items-center ${
+                      !isEven ? "lg:[&>*:first-child]:order-2" : ""
+                    }`}
+                  >
+                    <div className="rounded-xl overflow-hidden">
+                      <Image
+                        src={e.image}
+                        alt={e.title}
+                        width={700}
+                        height={420}
+                        className="object-cover w-full h-[280px] lg:h-[320px] rounded-xl"
+                      />
+                    </div>
+                    <div>
+                      <span
+                        className="text-[11px] font-bold py-1.5 px-3.5 rounded-full tracking-wide inline-block mb-4"
+                        style={{ background: tc.bg, color: tc.text }}
+                      >
+                        {e.tag}
+                      </span>
+                      <div className="text-[12px] font-bold tracking-[2px] uppercase text-gold mb-2">
+                        Every {e.month}
+                      </div>
+                      <h3 className="font-display text-[clamp(22px,3vw,30px)] font-bold text-charcoal mb-4 leading-tight">
+                        {e.title}
+                      </h3>
+                      <p className="text-base text-slate leading-loose mb-4">{e.desc}</p>
+                      <p className="text-[13px] text-muted font-medium">{e.detail}</p>
+                    </div>
+                  </motion.div>
+                );
+              })}
+            </div>
+
+            <div className="border-t border-border" />
+          </>
+        )}
+
         {/* ── Upcoming Events ── */}
+        <div id="upcoming" className="scroll-mt-[100px]">
         <SectionHeader label="What's Happening" />
         <div className="flex justify-between items-end flex-wrap gap-4 mb-10">
           <motion.h2
@@ -101,83 +183,11 @@ export default function Events({ limit }: { limit?: number }) {
           })}
         </motion.div>
 
+        </div>{/* end #upcoming */}
+
         {/* ── Full-page only sections ── */}
         {!limit && (
           <>
-            {/* ── Signature Annual Events ── */}
-            <div className="mt-[80px] border-t border-border pt-16">
-              <SectionHeader label="Every Year, Without Fail" />
-              <motion.h2
-                variants={fadeUp}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-                className="font-display text-[clamp(26px,4vw,38px)] font-bold text-charcoal mb-4 leading-tight"
-              >
-                Signature Annual Events
-              </motion.h2>
-              <motion.p
-                variants={fadeUp}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-                className="text-base text-slate leading-loose max-w-2xl mb-12"
-              >
-                These are the events our community looks forward to every single year —
-                moments that define who we are and what we celebrate together.
-              </motion.p>
-
-              <div className="flex flex-col gap-12">
-                {SIGNATURE_EVENTS.map((e, i) => {
-                  const tc = TAG_COLORS[e.tag];
-                  const isEven = i % 2 === 0;
-                  return (
-                    <motion.div
-                      key={e.title}
-                      variants={isEven ? slideInLeft : slideInRight}
-                      initial="hidden"
-                      whileInView="visible"
-                      viewport={{ once: true, margin: "-60px" }}
-                      className={`grid grid-cols-1 lg:grid-cols-2 gap-8 items-center ${
-                        !isEven ? "lg:[&>*:first-child]:order-2" : ""
-                      }`}
-                    >
-                      {/* Image */}
-                      <div className="rounded-xl overflow-hidden">
-                        <Image
-                          src={e.image}
-                          alt={e.title}
-                          width={700}
-                          height={420}
-                          className="object-cover w-full h-[280px] lg:h-[320px] rounded-xl"
-                        />
-                      </div>
-
-                      {/* Text */}
-                      <div>
-                        <span
-                          className="text-[11px] font-bold py-1.5 px-3.5 rounded-full tracking-wide inline-block mb-4"
-                          style={{ background: tc.bg, color: tc.text }}
-                        >
-                          {e.tag}
-                        </span>
-                        <div className="text-[12px] font-bold tracking-[2px] uppercase text-gold mb-2">
-                          Every {e.month}
-                        </div>
-                        <h3 className="font-display text-[clamp(22px,3vw,30px)] font-bold text-charcoal mb-4 leading-tight">
-                          {e.title}
-                        </h3>
-                        <p className="text-base text-slate leading-loose mb-4">
-                          {e.desc}
-                        </p>
-                        <p className="text-[13px] text-muted font-medium">{e.detail}</p>
-                      </div>
-                    </motion.div>
-                  );
-                })}
-              </div>
-            </div>
-
             {/* ── Past Highlights ── */}
             <div className="mt-[80px] border-t border-border pt-16">
               <SectionHeader label="Past Events" />
