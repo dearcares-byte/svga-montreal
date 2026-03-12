@@ -2,10 +2,9 @@
    SVG Association of Montreal - Constants
    ═══════════════════════════════════════════ */
 
-// TODO: Replace with real social media URLs when available
 export const SOCIAL_LINKS = {
-  facebook: "#",
-  instagram: "#",
+  facebook: "https://www.facebook.com/SVGAMontreal/",
+  instagram: "https://www.instagram.com/svg.montreal/",
   youtube: "#",
 } as const;
 
