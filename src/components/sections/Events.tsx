@@ -209,9 +209,9 @@ export default function Events({ limit }: { limit?: number }) {
                 className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5"
               >
                 {[
-                  { src: "/community-event.jpeg", caption: "Caribbean Culture Festival 2024", sub: "Parc Jean-Drapeau · June 2024" },
-                  { src: "/leadership-gala.jpeg", caption: "Independence Day Gala 2024", sub: "Plaza Centre-Ville · October 2024" },
-                  { src: "/community-speaker.jpeg", caption: "Youth Mentorship Workshop 2024", sub: "CDN Library · April 2024" },
+                  { src: "/community-event.jpeg", caption: "Vincy Unity Picnic 2025", sub: "Montreal · Summer 2025" },
+                  { src: "/leadership-gala.jpeg", caption: "Independence Dinner 2025", sub: "Montreal · October 2025" },
+                  { src: "/community-speaker.jpeg", caption: "Member Meeting 2025", sub: "Montreal · Fall 2025" },
                 ].map((photo) => (
                   <motion.div
                     key={photo.src}
