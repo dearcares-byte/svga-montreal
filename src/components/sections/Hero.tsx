@@ -21,11 +21,25 @@ export default function Hero() {
     <section
       id="home"
       className="relative min-h-[85vh] flex items-center overflow-hidden"
-      style={{
-        background: "linear-gradient(135deg, #001631 0%, #002B5C 50%, #0052A5 100%)",
-      }}
     >
-      {/* Background diamond pattern */}
+      {/* Full-bleed background image */}
+      <Image
+        src="/svgahero.jpg"
+        alt="SVG Association of Montreal community"
+        fill
+        className="object-cover object-center"
+        priority
+      />
+
+      {/* Dark overlay for text legibility */}
+      <div
+        className="absolute inset-0 z-[1]"
+        style={{
+          background: "linear-gradient(135deg, rgba(0,16,40,0.78) 0%, rgba(0,43,92,0.65) 60%, rgba(0,43,92,0.35) 100%)",
+        }}
+      />
+
+      {/* Diamond pattern on top of overlay */}
       <DiamondPattern id="hero-diamonds" />
 
       {/* Gold accent stripe */}
@@ -35,28 +49,6 @@ export default function Hero() {
           background: "linear-gradient(90deg, #009739, #FCD116, #009739)",
         }}
       />
-
-      {/* Right-side hero image */}
-      <div
-        className="absolute right-0 top-0 bottom-0 w-[45%] hidden lg:block overflow-hidden"
-        style={{
-          clipPath: "polygon(15% 0, 100% 0, 100% 100%, 0% 100%)",
-        }}
-      >
-        <Image
-          src="/hero-community.jpeg"
-          alt="Beach in St. Vincent and the Grenadines"
-          fill
-          className="object-cover"
-          priority
-        />
-        <div
-          className="absolute inset-0"
-          style={{
-            background: "linear-gradient(135deg, rgba(0,43,92,0.45), rgba(0,82,165,0.3))",
-          }}
-        />
-      </div>
 
       <Container className="relative z-[3] pt-36 pb-20">
         <div className="max-w-[560px]">
