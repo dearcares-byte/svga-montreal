@@ -21,13 +21,27 @@ const tagColors: Record<string, string> = {
 function PressReleaseContent({ content }: { content: Extract<typeof NEWS_EXTENDED_CONTENT[string], { type: "press-release" }> }) {
   return (
     <div className="max-w-3xl mx-auto">
-      <Image
-        src={content.inlineImage}
-        alt="Press release image"
-        width={900}
-        height={420}
-        className="w-full h-[280px] object-cover rounded-xl mb-8"
-      />
+      {/* Flyer — displayed as a prominent poster when present, otherwise banner image */}
+      {content.flyer ? (
+        <div className="flex justify-center mb-10">
+          <Image
+            src={content.flyer}
+            alt="Event flyer"
+            width={480}
+            height={680}
+            className="rounded-xl shadow-lg max-w-full"
+            style={{ maxHeight: "520px", width: "auto", objectFit: "contain" }}
+          />
+        </div>
+      ) : (
+        <Image
+          src={content.inlineImage}
+          alt="Press release image"
+          width={900}
+          height={420}
+          className="w-full h-[280px] object-cover rounded-xl mb-8"
+        />
+      )}
       <div className="flex flex-col gap-5">
         {content.body.map((para, i) => (
           <p

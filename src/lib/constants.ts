@@ -282,6 +282,13 @@ export const NEWS_ARTICLES = [
     image: "/community-event.jpeg",
   },
   {
+    date: "Mar 2026",
+    tag: "Events",
+    title: "Vincy Unity Picnic Canada Returns — July 18th, 2026",
+    excerpt: "Canada's largest Vincentian diaspora celebration is back. Join thousands at Crysler Park Marina in Morrisburg, Ontario for a full day of music, culture, and community.",
+    image: "/unity-picnic-2026.jpg",
+  },
+  {
     date: "Feb 12, 2026",
     tag: "Announcement",
     title: "New Community Partnership Announced",
@@ -373,9 +380,24 @@ export const BOARD_MEMBERS = [
 
 export const NEWS_EXTENDED_CONTENT: Record<
   string,
-  | { type: "press-release"; body: string[]; inlineImage: string }
+  | { type: "press-release"; body: string[]; inlineImage: string; flyer?: string }
   | { type: "gallery"; intro: string; images: string[] }
 > = {
+  "Vincy Unity Picnic Canada Returns — July 18th, 2026": {
+    type: "press-release",
+    inlineImage: "/unity-picnic-2026.jpg",
+    flyer: "/unity-picnic-2026.jpg",
+    body: [
+      "FOR IMMEDIATE RELEASE — March 2026 · SVG Associations of Montréal, Ottawa & Toronto",
+      "The SVG Associations of Montréal, Ottawa, and Toronto are proud to announce the return of the Vincy Unity Picnic Canada on Saturday, July 18th, 2026. Now in its third decade, this beloved annual tradition will once again be held at the scenic Crysler Park Marina, 13480 Stormont County Road 2, Morrisburg, Ontario. Gates open at 8:00 AM, with the picnic grounds closing at 4:30 PM and the event wrapping up at 6:00 PM.",
+      "First held in 1999, the Vincy Unity Picnic has grown into one of the most prominent Caribbean cultural events in Canada, regularly drawing more than 12,000 attendees from Montréal, Ottawa, Toronto, other Canadian provinces, and across the United States.",
+      '"The Vincy Unity Picnic is more than a summer outing — it is a celebration of who we are. Every year, thousands of Vincentians and their friends come together to honour our culture, our music, and our community bonds, both here in Canada and across the diaspora." — Vincy Unity Picnic Canada Committee',
+      "The 2026 edition promises a rich programme for the whole family: Live Music & Entertainment — a full day of soca, calypso, and Caribbean sounds · Cultural Performances celebrating the heritage of St. Vincent and the Grenadines · Kids Village with dedicated activities · Marketplace featuring local vendors, food, arts, and crafts · Lakeside Vibes set against the stunning backdrop of the St. Lawrence River.",
+      "📅 Saturday, July 18th, 2026 · Crysler Park Marina, Morrisburg, Ontario · Gates: 8:00 AM – 4:30 PM · Event ends 6:00 PM",
+      "Tickets and further details — including performer announcements, vendor applications, and sponsorship opportunities — are available through the SVG Associations and at vincyunitypicniccanada.com. Follow @vincyunitypicnicca on Facebook and Instagram and use #VincyUnityPicnic to join the conversation.",
+      "About the Vincy Unity Picnic Canada: The Annual Vincy Unity Picnic Canada is a family-friendly cultural celebration hosted by the SVG Unity Picnic Committee on behalf of the St. Vincent and the Grenadines Associations of Montréal, Ottawa, and Toronto. Held every third Saturday in July since 1999. Media contact: vincyunitypicnicca@gmail.com · vincyunitypicniccanada.com · Montréal: 514-581-4879",
+    ],
+  },
   "New Community Partnership Announced": {
     type: "press-release",
     inlineImage: "/community-speaker.jpeg",
