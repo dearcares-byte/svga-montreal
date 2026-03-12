@@ -372,6 +372,44 @@ export const BOARD_MEMBERS = [
   },
 ] as const;
 
+export const NEWS_EXTENDED_CONTENT: Record<
+  string,
+  | { type: "press-release"; body: string[]; inlineImage: string }
+  | { type: "gallery"; intro: string; images: string[] }
+> = {
+  "New Community Partnership Announced": {
+    type: "press-release",
+    inlineImage: "/community-speaker.jpeg",
+    body: [
+      "FOR IMMEDIATE RELEASE — Montreal, QC, February 12, 2026",
+      "The St. Vincent & the Grenadines Association of Montreal (SVGAM) is proud to announce a formal partnership with the Centre for Immigrant and Community Services (CICS) and the Maison d'Haïti community organization to expand support services for Vincentian newcomers and long-time residents across the greater Montreal area.",
+      "Under the terms of the agreement, the three organizations will coordinate on settlement referrals, French-language integration programming, and joint community events beginning in Spring 2026. The partnership will also create a shared resource hub accessible to all three communities, reducing duplication and improving access for newcomers navigating Quebec's social services landscape.",
+      '"This partnership reflects something we have believed since day one — that our community is strongest when we build bridges," said Cheryl Thomas, President of the SVG Association of Montreal. "Working alongside CICS and Maison d\'Haïti allows us to serve our members more effectively while contributing to a more unified immigrant community in Montreal."',
+      "The collaboration was facilitated through the City of Montreal's Bureau interculturel, which has supported multicultural community initiatives in the region since 2001. Initial programming under the partnership will include bi-monthly newcomer orientation sessions, a shared events calendar, and cross-community cultural exchanges beginning in April 2026.",
+      "Members and community partners interested in learning more about the partnership or participating in upcoming programs are encouraged to contact the association at info@svgmontreal.ca.",
+      "About the SVG Association of Montreal: The St. Vincent & the Grenadines Association of Montreal is a non-profit community organization dedicated to connecting, celebrating, and supporting the Vincentian diaspora in Quebec. Founded in 2003, the association serves over 5,000 community members through cultural events, advocacy, and mutual aid programs.",
+    ],
+  },
+  "Independence Day Gala Highlights": {
+    type: "gallery",
+    intro: "On October 27th, 2025, the SVG Association of Montreal hosted its annual Independence Dinner — a spectacular evening of culture, community, and celebration. Over 250 guests gathered to commemorate the independence of St. Vincent and the Grenadines with a formal dinner, live entertainment, heartfelt speeches, and dancing that carried on well into the night. Here are some of the highlights from a truly unforgettable evening.",
+    images: [
+      "https://picsum.photos/seed/gala01/800/600",
+      "https://picsum.photos/seed/gala02/800/600",
+      "https://picsum.photos/seed/gala03/600/800",
+      "https://picsum.photos/seed/gala04/800/600",
+      "https://picsum.photos/seed/gala05/800/600",
+      "https://picsum.photos/seed/gala06/800/600",
+      "https://picsum.photos/seed/gala07/600/800",
+      "https://picsum.photos/seed/gala08/800/600",
+      "https://picsum.photos/seed/gala09/800/600",
+      "https://picsum.photos/seed/gala10/800/600",
+      "https://picsum.photos/seed/gala11/800/600",
+      "https://picsum.photos/seed/gala12/600/800",
+    ],
+  },
+};
+
 export const CONTACT_INFO = [
   {
     icon: "location" as const,
