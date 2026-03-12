@@ -385,7 +385,7 @@ export const NEWS_EXTENDED_CONTENT: Record<
       "Under the terms of the agreement, the three organizations will coordinate on settlement referrals, French-language integration programming, and joint community events beginning in Spring 2026. The partnership will also create a shared resource hub accessible to all three communities, reducing duplication and improving access for newcomers navigating Quebec's social services landscape.",
       '"This partnership reflects something we have believed since day one — that our community is strongest when we build bridges," said Cheryl Thomas, President of the SVG Association of Montreal. "Working alongside CICS and Maison d\'Haïti allows us to serve our members more effectively while contributing to a more unified immigrant community in Montreal."',
       "The collaboration was facilitated through the City of Montreal's Bureau interculturel, which has supported multicultural community initiatives in the region since 2001. Initial programming under the partnership will include bi-monthly newcomer orientation sessions, a shared events calendar, and cross-community cultural exchanges beginning in April 2026.",
-      "Members and community partners interested in learning more about the partnership or participating in upcoming programs are encouraged to contact the association at info@svgmontreal.ca.",
+      "Members and community partners interested in learning more about the partnership or participating in upcoming programs are encouraged to contact the association at info@svgamontreal.ca.",
       "About the SVG Association of Montreal: The St. Vincent & the Grenadines Association of Montreal is a non-profit community organization dedicated to connecting, celebrating, and supporting the Vincentian diaspora in Quebec. Founded in 2003, the association serves over 5,000 community members through cultural events, advocacy, and mutual aid programs.",
     ],
   },
@@ -415,7 +415,7 @@ export const CONTACT_INFO = [
     title: "Meeting Location",
     lines: ["Saint Paul's Anglican Church", "3970 Chemin de la Côte-Sainte-Catherine", "Montreal, QC H3T 1E3"],
   },
-  { icon: "email" as const, title: "Email", lines: ["info@svgmontreal.ca"] },
+  { icon: "email" as const, title: "Email", lines: ["info@svgamontreal.ca"] },
 ] as const;
 
 export const FOOTER_LINKS = [
