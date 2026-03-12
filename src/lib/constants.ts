@@ -289,6 +289,13 @@ export const NEWS_ARTICLES = [
     image: "/hero-community.jpeg",
   },
   {
+    date: "Nov 20, 2025",
+    tag: "Culture",
+    title: "Independence Day Gala Highlights",
+    excerpt: "Relive the memorable moments from our annual celebration of St. Vincent and the Grenadines' Independence — an unforgettable evening.",
+    image: "/leadership-gala.jpeg",
+  },
+  {
     date: "Feb 1, 2026",
     tag: "Community",
     title: "Volunteer Spotlight: Meet Our Event Coordinators",
@@ -315,13 +322,6 @@ export const NEWS_ARTICLES = [
     title: "Holiday Food Drive Success",
     excerpt: "Thanks to the generosity of our members, we delivered over 200 food baskets to families across Montreal this holiday season.",
     image: "/hero-community.jpeg",
-  },
-  {
-    date: "Nov 20, 2025",
-    tag: "Culture",
-    title: "Independence Day Gala Highlights",
-    excerpt: "Relive the memorable moments from our annual celebration of St. Vincent and the Grenadines' Independence — an unforgettable evening.",
-    image: "/leadership-gala.jpeg",
   },
   {
     date: "Oct 5, 2025",
