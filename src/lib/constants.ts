@@ -60,10 +60,10 @@ export const NAV_ITEMS = [
 ] as const;
 
 export const STATS = [
-  { num: "500+", label: "Community Members", value: 500 },
-  { num: "30+", label: "Events Per Year", value: 30 },
-  { num: "20+", label: "Years of Service", value: 20 },
-  { num: "5", label: "Active Programs", value: 5 },
+  { num: "5,000+", label: "Vincentians Supported", value: 5000 },
+  { num: "20+", label: "Events Per Year", value: 20 },
+  { num: "60+", label: "Years of Service", value: 60 },
+  { num: "5+", label: "Active Programs", value: 5 },
 ] as const;
 
 export const EVENTS = [
