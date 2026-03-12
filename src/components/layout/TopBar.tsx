@@ -1,12 +1,11 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Phone, Mail } from "lucide-react";
+import { Mail } from "lucide-react";
 import Link from "next/link";
 import Container from "@/components/ui/Container";
 import { SOCIAL_LINKS, CONTACT_INFO, TOPBAR_HEIGHT } from "@/lib/constants";
 
-const phone = CONTACT_INFO.find((c) => c.icon === "phone")?.lines[0] ?? "";
 const email = CONTACT_INFO.find((c) => c.icon === "email")?.lines[0] ?? "";
 
 export default function TopBar() {
@@ -19,13 +18,6 @@ export default function TopBar() {
     >
       <Container className="flex justify-between items-center flex-wrap gap-2">
         <div className="flex gap-5 items-center">
-          <a
-            href={`tel:${phone.replace(/[^+\d]/g, "")}`}
-            className="flex items-center gap-1.5 text-xs text-white/60 no-underline hover:text-white/80 transition-colors"
-          >
-            <Phone size={11} />
-            {phone}
-          </a>
           <a
             href={`mailto:${email}`}
             className="flex items-center gap-1.5 text-xs text-white/60 no-underline hover:text-white/80 transition-colors"

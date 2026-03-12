@@ -1,14 +1,13 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Phone, Mail, MapPin, Clock } from "lucide-react";
+import { Mail, MapPin } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import Container from "@/components/ui/Container";
 import { FOOTER_LINKS, SOCIAL_LINKS, CONTACT_INFO } from "@/lib/constants";
 import { fadeUp, staggerContainer } from "@/lib/animations";
 
-const phone = CONTACT_INFO.find((c) => c.icon === "phone")?.lines[0] ?? "";
 const email = CONTACT_INFO.find((c) => c.icon === "email")?.lines[0] ?? "";
 
 export default function Footer() {
@@ -81,16 +80,11 @@ export default function Footer() {
             </div>
             <div className="text-[13px] text-white/45 space-y-2">
               <div className="flex items-center gap-2">
-                <Phone size={12} /> {phone}
+                <Mail size={12} className="flex-shrink-0" /> {email}
               </div>
-              <div className="flex items-center gap-2">
-                <Mail size={12} /> {email}
-              </div>
-              <div className="flex items-center gap-2">
-                <MapPin size={12} /> Montreal, QC
-              </div>
-              <div className="flex items-center gap-2">
-                <Clock size={12} /> Sat 10am - 2pm
+              <div className="flex items-start gap-2">
+                <MapPin size={12} className="flex-shrink-0 mt-0.5" />
+                <span>Saint Paul&apos;s Anglican Church,<br />3970 Ch. de la Côte-Sainte-Catherine,<br />Montreal, QC H3T 1E3</span>
               </div>
             </div>
           </motion.div>

@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { MapPin, Phone, Mail, Facebook, Instagram, Clock } from "lucide-react";
+import { MapPin, Mail, Facebook, Instagram } from "lucide-react";
 import Container from "@/components/ui/Container";
 import SectionHeader from "@/components/ui/SectionHeader";
 import { CONTACT_INFO, SOCIAL_LINKS } from "@/lib/constants";
@@ -10,7 +10,6 @@ import { fadeUp, slideInLeft, slideInRight } from "@/lib/animations";
 
 const iconMap = {
   location: MapPin,
-  phone: Phone,
   email: Mail,
 } as const;
 
@@ -208,18 +207,6 @@ export default function Contact() {
                 </div>
               );
             })}
-
-            {/* Office hours */}
-            <div className="bg-white rounded-[10px] p-5 flex gap-4 items-start border border-border shadow-[0_2px_12px_rgba(0,43,92,0.04)]">
-              <div className="w-10 h-10 rounded-lg bg-navy/[0.07] flex items-center justify-center flex-shrink-0">
-                <Clock size={18} className="text-navy" />
-              </div>
-              <div>
-                <div className="font-semibold text-sm text-charcoal mb-1">Office Hours</div>
-                <div className="text-sm text-muted leading-relaxed">Saturday: 10:00 AM – 2:00 PM</div>
-                <div className="text-sm text-muted leading-relaxed">By appointment on weekdays</div>
-              </div>
-            </div>
 
             {/* Social links */}
             <div className="bg-white rounded-[10px] p-5 border border-border shadow-[0_2px_12px_rgba(0,43,92,0.04)]">

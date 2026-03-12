@@ -375,11 +375,9 @@ export const BOARD_MEMBERS = [
 export const CONTACT_INFO = [
   {
     icon: "location" as const,
-    title: "Office & Meetings",
-    lines: ["Community Centre", "Montreal, QC", "Saturday: 10am - 2pm"],
+    title: "Meeting Location",
+    lines: ["Saint Paul's Anglican Church", "3970 Chemin de la Côte-Sainte-Catherine", "Montreal, QC H3T 1E3"],
   },
-  // TODO: Replace placeholder phone number with real number
-  { icon: "phone" as const, title: "Phone", lines: ["(514) 000-0000"] },
   { icon: "email" as const, title: "Email", lines: ["info@svgmontreal.ca"] },
 ] as const;
 
