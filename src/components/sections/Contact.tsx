@@ -14,7 +14,7 @@ const iconMap = {
 } as const;
 
 // TODO: Replace with your real Formspree form ID (e.g. "xabcdefg")
-const FORMSPREE_URL = "https://formspree.io/f/YOUR_FORM_ID";
+const FORMSPREE_URL = "https://formspree.io/f/xlgagalj";
 
 const SUBJECTS = [
   "General Inquiry",
