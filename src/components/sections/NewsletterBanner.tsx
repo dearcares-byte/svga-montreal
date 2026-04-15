@@ -7,7 +7,7 @@ import SectionHeader from "@/components/ui/SectionHeader";
 import { fadeUp } from "@/lib/animations";
 
 // TODO: Replace with your real Formspree form ID for newsletter signups
-const FORMSPREE_URL = "https://formspree.io/f/YOUR_NEWSLETTER_FORM_ID";
+const FORMSPREE_URL = "https://formspree.io/f/xlgagalj";
 
 export default function NewsletterBanner() {
   const [email, setEmail] = useState("");
