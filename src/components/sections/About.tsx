@@ -127,8 +127,8 @@ export default function About({ preview = false }: { preview?: boolean }) {
           >
             <div className="rounded-xl overflow-hidden min-h-[240px] mb-5 relative">
               <Image
-                src="/community-speaker.jpeg"
-                alt="Community leader speaking at an SVG Association event"
+                src="/independence2025/581815781_17925328986170702_6362384645454550099_n.jpg"
+                alt="SVGAM community members at the 60th Anniversary Diamond Celebration"
                 width={600}
                 height={400}
                 className="object-cover w-full h-[280px] rounded-xl"

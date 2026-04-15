@@ -220,7 +220,7 @@ export default function Events({ limit }: { limit?: number }) {
               >
                 {[
                   { src: "/community-event.jpeg", caption: "Vincy Unity Picnic 2025", sub: "Montreal · Summer 2025" },
-                  { src: "/leadership-gala.jpeg", caption: "Independence Dinner 2025", sub: "Montreal · October 2025" },
+                  { src: "/independence2025/583464288_17925328977170702_3095671320044039545_n.jpg", caption: "Independence Dinner 2025", sub: "Montreal · October 2025" },
                   { src: "/community-speaker.jpeg", caption: "Member Meeting 2025", sub: "Montreal · Fall 2025" },
                 ].map((photo) => (
                   <motion.div
