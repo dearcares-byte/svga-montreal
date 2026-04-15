@@ -2,7 +2,7 @@
 
 import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowRight, X, BookOpen, Images } from "lucide-react";
+import { ArrowRight, X, BookOpen, Images, ChevronLeft, ChevronRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import Container from "@/components/ui/Container";
@@ -65,11 +65,40 @@ function PressReleaseContent({ content }: { content: Extract<typeof NEWS_EXTENDE
 }
 
 function GalleryContent({ content }: { content: Extract<typeof NEWS_EXTENDED_CONTENT[string], { type: "gallery" }> }) {
+  const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
+
+  const openLightbox = (i: number) => setLightboxIndex(i);
+  const closeLightbox = () => setLightboxIndex(null);
+  const prev = () => setLightboxIndex((i) => (i !== null ? (i - 1 + content.images.length) % content.images.length : null));
+  const next = () => setLightboxIndex((i) => (i !== null ? (i + 1) % content.images.length : null));
+
+  useEffect(() => {
+    if (lightboxIndex === null) return;
+    const handler = (e: KeyboardEvent) => {
+      if (e.key === "ArrowLeft") prev();
+      else if (e.key === "ArrowRight") next();
+      else if (e.key === "Escape") closeLightbox();
+    };
+    window.addEventListener("keydown", handler);
+    return () => window.removeEventListener("keydown", handler);
+  }, [lightboxIndex]);
+
   return (
     <div>
-      <p className="text-base text-slate leading-loose max-w-3xl mx-auto mb-10 text-center">
-        {content.intro}
-      </p>
+      {content.body ? (
+        <div className="flex flex-col gap-5 max-w-3xl mx-auto mb-10">
+          {content.body.map((para, i) => (
+            <p key={i} className="text-base text-slate leading-loose">
+              {para}
+            </p>
+          ))}
+        </div>
+      ) : content.intro ? (
+        <p className="text-base text-slate leading-loose max-w-3xl mx-auto mb-10 text-center">
+          {content.intro}
+        </p>
+      ) : null}
+
       <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
         {content.images.map((src, i) => (
           <motion.div
@@ -77,10 +106,11 @@ function GalleryContent({ content }: { content: Extract<typeof NEWS_EXTENDED_CON
             initial={{ opacity: 0, scale: 0.96 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: i * 0.05, duration: 0.3 }}
-            className={`relative overflow-hidden rounded-lg ${
+            className={`relative overflow-hidden rounded-lg cursor-pointer ${
               i === 0 ? "col-span-2 row-span-2" : ""
             }`}
             style={{ aspectRatio: i === 0 ? "16/9" : "4/3" }}
+            onClick={() => openLightbox(i)}
           >
             <Image
               src={src}
@@ -91,6 +121,65 @@ function GalleryContent({ content }: { content: Extract<typeof NEWS_EXTENDED_CON
           </motion.div>
         ))}
       </div>
+
+      <AnimatePresence>
+        {lightboxIndex !== null && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black/90"
+            onClick={closeLightbox}
+          >
+            {/* Image */}
+            <motion.div
+              key={lightboxIndex}
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.95 }}
+              transition={{ duration: 0.2 }}
+              className="relative max-w-5xl max-h-[90vh] w-full mx-16"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <Image
+                src={content.images[lightboxIndex]}
+                alt={`Event photo ${lightboxIndex + 1}`}
+                width={1200}
+                height={900}
+                className="object-contain max-h-[90vh] w-full rounded-lg"
+              />
+              <div className="absolute bottom-3 right-4 text-white/60 text-sm">
+                {lightboxIndex + 1} / {content.images.length}
+              </div>
+            </motion.div>
+
+            {/* Prev */}
+            <button
+              onClick={(e) => { e.stopPropagation(); prev(); }}
+              className="absolute left-4 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-white/10 hover:bg-white/25 flex items-center justify-center text-white transition-colors"
+            >
+              <ChevronLeft size={24} />
+            </button>
+
+            {/* Next */}
+            <button
+              onClick={(e) => { e.stopPropagation(); next(); }}
+              className="absolute right-4 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-white/10 hover:bg-white/25 flex items-center justify-center text-white transition-colors"
+            >
+              <ChevronRight size={24} />
+            </button>
+
+            {/* Close */}
+            <button
+              onClick={closeLightbox}
+              className="absolute top-4 right-4 w-9 h-9 rounded-full bg-white/10 hover:bg-white/25 flex items-center justify-center text-white transition-colors"
+            >
+              <X size={18} />
+            </button>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }
@@ -102,7 +191,7 @@ export default function News({ preview = false }: { preview?: boolean }) {
   const featured = NEWS_ARTICLES[0];
   const rest = preview ? NEWS_ARTICLES.slice(0, 4) : NEWS_ARTICLES.slice(1);
 
-  const expandedArticle = rest.find((a) => a.title === expanded) ?? null;
+  const expandedArticle = NEWS_ARTICLES.find((a) => a.title === expanded) ?? null;
   const expandedContent = expanded ? NEWS_EXTENDED_CONTENT[expanded] : null;
 
   const handleExpand = (title: string) => {
@@ -177,9 +266,18 @@ export default function News({ preview = false }: { preview?: boolean }) {
                 {featured.title}
               </h3>
               <p className="text-base text-slate leading-relaxed mb-6">{featured.excerpt}</p>
-              <span className="text-sm font-semibold text-navy flex items-center gap-1">
-                Read More <ArrowRight size={14} />
-              </span>
+              {NEWS_EXTENDED_CONTENT[featured.title] ? (
+                <button
+                  onClick={() => handleExpand(featured.title)}
+                  className="text-sm font-semibold text-navy flex items-center gap-1 hover:gap-2 transition-all bg-transparent border-none cursor-pointer p-0"
+                >
+                  {expanded === featured.title ? "Close" : "Read More"} <ArrowRight size={14} />
+                </button>
+              ) : (
+                <span className="text-sm font-semibold text-navy flex items-center gap-1">
+                  Read More <ArrowRight size={14} />
+                </span>
+              )}
             </div>
           </motion.div>
         )}
