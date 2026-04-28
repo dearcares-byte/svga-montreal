@@ -305,42 +305,16 @@ export const NEWS_ARTICLES = [
 ] as const;
 
 export const BOARD_MEMBERS = [
-  {
-    name: "Cheryl Thomas",
-    role: "President",
-    photo: "https://randomuser.me/api/portraits/women/36.jpg",
-    bio: "Cheryl has led the association since 2018, bringing over 20 years of community organizing experience and a lifelong passion for Vincentian culture.",
-  },
-  {
-    name: "Marcus Williams",
-    role: "Vice President",
-    photo: "https://randomuser.me/api/portraits/men/54.jpg",
-    bio: "Marcus oversees programming and partnerships, coordinating with Montreal's multicultural organizations to amplify our community's voice.",
-  },
-  {
-    name: "Sandra Joseph",
-    role: "Secretary",
-    photo: "https://randomuser.me/api/portraits/women/56.jpg",
-    bio: "Sandra manages communications and records, ensuring our members stay informed and our governance remains transparent.",
-  },
-  {
-    name: "David Exeter",
-    role: "Treasurer",
-    photo: "https://randomuser.me/api/portraits/men/83.jpg",
-    bio: "David brings a background in finance to his role, stewarding the association's resources with care and accountability.",
-  },
-  {
-    name: "Patricia King",
-    role: "Director, Youth & Education",
-    photo: "https://randomuser.me/api/portraits/women/65.jpg",
-    bio: "Patricia champions youth programming, from mentorship workshops to scholarships for Vincentian students across Quebec.",
-  },
-  {
-    name: "Errol Franklyn",
-    role: "Director, Culture & Events",
-    photo: "https://randomuser.me/api/portraits/men/23.jpg",
-    bio: "Errol curates our annual calendar of events, bringing the vibrancy of Vincentian culture to life on Montreal's stage.",
-  },
+  { name: "Nicole John",        role: "President"            },
+  { name: "Carleen Francis",    role: "Vice President"       },
+  { name: "Natasha Haynes",     role: "Treasurer"            },
+  { name: "Jasmine Noel",       role: "Assistant Treasurer"  },
+  { name: "Chantel Solomon",    role: "Secretary"            },
+  { name: "Jackie Parris",      role: "Assistant Secretary"  },
+  { name: "Naomi Fraser",       role: "PRO"                  },
+  { name: "Abigail Dick",       role: "Member at Large"      },
+  { name: "Lenore Ralph",       role: "Member at Large"      },
+  { name: "Coreen Ollivierre",  role: "Member at Large"      },
 ] as const;
 
 export const NEWS_EXTENDED_CONTENT: Record<

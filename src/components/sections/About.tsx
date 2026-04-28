@@ -252,32 +252,31 @@ export default function About({ preview = false }: { preview?: boolean }) {
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true }}
-                className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
+                className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5"
               >
                 {BOARD_MEMBERS.map((m) => (
                   <motion.div
-                    key={m.role}
+                    key={m.role + m.name}
                     variants={fadeUp}
                     whileHover={{ y: -4, boxShadow: "0 12px 40px rgba(0,43,92,0.10)" }}
-                    className="bg-white rounded-xl p-6 border border-border shadow-[0_2px_12px_rgba(0,43,92,0.06)] flex gap-4 items-start"
+                    className="bg-white rounded-xl p-5 border border-border shadow-[0_2px_12px_rgba(0,43,92,0.06)] flex flex-col items-center text-center gap-3"
                   >
-                    <Image
-                      src={m.photo}
-                      alt={`Photo of ${m.name}`}
-                      width={72}
-                      height={72}
-                      className="rounded-full object-cover flex-shrink-0 w-[72px] h-[72px]"
-                    />
+                    {/* Silhouette avatar */}
+                    <div
+                      className="w-[72px] h-[72px] rounded-full flex items-center justify-center flex-shrink-0"
+                      style={{ background: "#EEF3FA" }}
+                    >
+                      <svg width="40" height="40" viewBox="0 0 24 24" fill="#002B5C" opacity="0.35">
+                        <path d="M12 12c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm0 2c-3.33 0-10 1.67-10 5v2h20v-2c0-3.33-6.67-5-10-5z"/>
+                      </svg>
+                    </div>
                     <div>
-                      <div className="font-display font-bold text-[17px] text-charcoal leading-tight">
+                      <div className="font-display font-bold text-[15px] text-charcoal leading-tight">
                         {m.name}
                       </div>
-                      <div className="text-xs font-semibold text-green uppercase tracking-wide mb-2">
+                      <div className="text-[11px] font-semibold text-green uppercase tracking-wide mt-1">
                         {m.role}
                       </div>
-                      <p className="text-sm text-slate leading-relaxed">
-                        {m.bio}
-                      </p>
                     </div>
                   </motion.div>
                 ))}
