@@ -41,38 +41,6 @@ const pillars = [
   },
 ];
 
-const timeline = [
-  {
-    year: "2003",
-    title: "The Association is Founded",
-    desc: "A small group of Vincentian immigrants gather in NDG to formally establish the SVG Association of Montreal, with a founding membership of 28 families.",
-  },
-  {
-    year: "2007",
-    title: "First Independence Day Gala",
-    desc: "We host our inaugural Independence Day Gala at Place des Arts, drawing over 300 attendees and marking a turning point in the association's public presence.",
-  },
-  {
-    year: "2010",
-    title: "Newcomer Support Program Launched",
-    desc: "Recognizing a growing need, we launch a structured newcomer program offering settlement guidance, French-language referrals, and mentorship for newly arrived Vincentians.",
-  },
-  {
-    year: "2015",
-    title: "200-Member Milestone",
-    desc: "Membership crosses 200 registered households, prompting a full restructuring of the board and the introduction of annual membership dues to sustain programming.",
-  },
-  {
-    year: "2018",
-    title: "City of Montreal Partnership",
-    desc: "A formal partnership with the City of Montreal's Bureau interculturel enables expanded outreach, grant funding, and co-hosted cultural programming.",
-  },
-  {
-    year: "2023",
-    title: "20th Anniversary — 500+ Members",
-    desc: "We celebrate two decades of service with a landmark gala and community picnic, welcoming our 500th registered member and launching a youth scholarship fund.",
-  },
-];
 
 export default function About({ preview = false }: { preview?: boolean }) {
   return (
