@@ -9,6 +9,7 @@ import Button from "@/components/ui/Button";
 import { BOARD_MEMBERS } from "@/lib/constants";
 import { fadeUp, slideInLeft, slideInRight, staggerContainer } from "@/lib/animations";
 
+
 const values = [
   { icon: "🎭", label: "Cultural Events" },
   { icon: "🤝", label: "Community Aid" },
@@ -283,69 +284,6 @@ export default function About({ preview = false }: { preview?: boolean }) {
               </motion.div>
             </div>
 
-            {/* ── History Timeline ── */}
-            <div className="mt-[80px] border-t border-border pt-16">
-              <SectionHeader label="Our History" />
-              <motion.h2
-                variants={fadeUp}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-                className="font-display text-[clamp(26px,4vw,38px)] font-bold text-charcoal mb-12 leading-tight"
-              >
-                Two Decades of Service
-              </motion.h2>
-
-              <div className="relative">
-                <div className="absolute left-[18px] md:left-1/2 top-0 bottom-0 w-px bg-border md:-translate-x-px" />
-                <motion.div
-                  variants={staggerContainer}
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={{ once: true }}
-                  className="flex flex-col gap-10"
-                >
-                  {timeline.map((item, i) => {
-                    const isRight = i % 2 === 0;
-                    return (
-                      <motion.div
-                        key={item.year}
-                        variants={fadeUp}
-                        className={`relative flex flex-col md:flex-row items-start gap-6 md:gap-10 ${
-                          isRight ? "md:flex-row" : "md:flex-row-reverse"
-                        }`}
-                      >
-                        <div className="absolute left-[10px] md:left-1/2 md:-translate-x-[9px] top-1 w-[18px] h-[18px] rounded-full bg-navy border-[3px] border-white shadow-md z-10 flex-shrink-0" />
-                        <div
-                          className={`hidden md:flex w-1/2 ${
-                            isRight ? "justify-end pr-10" : "justify-start pl-10"
-                          } items-start pt-0.5`}
-                        >
-                          <span className="text-[13px] font-bold tracking-[2px] text-gold uppercase bg-navy/[0.06] px-4 py-1.5 rounded-full">
-                            {item.year}
-                          </span>
-                        </div>
-                        <div
-                          className={`pl-10 md:pl-0 w-full md:w-1/2 ${
-                            isRight ? "md:pl-10" : "md:pr-10"
-                          }`}
-                        >
-                          <span className="md:hidden text-[11px] font-bold tracking-[2px] text-gold uppercase bg-navy/[0.06] px-3 py-1 rounded-full inline-block mb-2">
-                            {item.year}
-                          </span>
-                          <div className="bg-white rounded-xl p-6 border border-border shadow-[0_2px_12px_rgba(0,43,92,0.06)]">
-                            <h4 className="font-display text-[17px] font-bold text-charcoal mb-2">
-                              {item.title}
-                            </h4>
-                            <p className="text-sm text-slate leading-relaxed">{item.desc}</p>
-                          </div>
-                        </div>
-                      </motion.div>
-                    );
-                  })}
-                </motion.div>
-              </div>
-            </div>
           </>
         )}
 
